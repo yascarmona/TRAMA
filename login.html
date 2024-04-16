@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="login.php" method="POST">
+        <label for="tipo">Tipo de Usuário:</label><br>
+        <input type="radio" id="cliente" name="tipo" value="cliente" checked>
+        <label for="cliente">Cliente</label><br>
+        <input type="radio" id="empresa" name="tipo" value="empresa">
+        <label for="empresa">Empresa</label><br><br>
+
+        <!-- Campos comuns -->
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <div id="cliente_fields">
+            <label for="cpf">CPF:</label><br>
+            <input type="text" id="cpf" name="cpf" ><br><br>
+        </div>
+
+        <div id="empresa_fields" style="display:none;">
+            <label for="cnpj">CNPJ:</label><br>
+            <input type="text" id="cnpj" name="cnpj" ><br><br>
+        </div>
+
+        <input type="submit" value="Login">
+        <a href="cadastro.html"> Realizar cadastro</a>
+    </form>
+    <script>
+        // Mostra os campos específicos dependendo do tipo de cadastro selecionado
+        document.getElementById('cliente').addEventListener('change', function() {
+            document.getElementById('cliente_fields').style.display = 'block';
+            document.getElementById('empresa_fields').style.display = 'none';
+        });
+
+        document.getElementById('empresa').addEventListener('change', function() {
+            document.getElementById('cliente_fields').style.display = 'none';
+            document.getElementById('empresa_fields').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
