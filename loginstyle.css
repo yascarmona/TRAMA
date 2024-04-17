@@ -1,0 +1,328 @@
+body {
+    margin: 0;
+    font-family: 'segoe UI', sans-serif;
+    height: 100%;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Adicionado espaçamento interno */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; /* Alinhar os links à esquerda */
+    flex-grow: 1; /* Os links ocuparão o espaço restante */
+}
+
+li {
+    padding: 15px;
+}
+
+.logo {
+    height: 75px;
+    margin-right: 50px; /* Move a logo para a direita */
+	margin-left: 50px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.logo img {
+    height: 100%;
+}
+
+.navlink {
+    color: #2c2c2c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: .25em;
+    position: relative;
+}
+
+.navlink:hover::after {
+    width: 100%;
+    right: 0;
+}
+
+.navlink::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 2;
+    content: "";
+    display: block;
+    height: 4px;
+    right: 0;
+    position: absolute;
+    background: linear-gradient(to left, #c1d0ab, #eaefea 100%);
+    transition: width .5s ease 0s, right .5s ease 0s;
+    width: 0;
+}
+
+.login-btn {
+	float: right;
+    background-color: #759358;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    margin-right: 80px; /* Adiciona margem à esquerda */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn:hover {
+    background-color:  #000;
+    color: #eaefea;
+}
+
+/**   INÍCIO DO LOGIN **/
+
+.loginbg{
+    background-image:
+    url('background.png');
+	max-width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    position: inherit;
+	height: 100%;
+	padding-bottom: 330px;
+    padding-top: 100px;
+}
+
+.logincontainer {
+    margin-top: 160px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-flow: wrap;
+    background-color: #fff;
+    width: 400px;
+    padding: 60px 60px 80px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    border-radius: 150px;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form{
+    margin-left: -20px;
+}
+
+.logincontainer h5{
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    margin-top: -1%;
+    color: #000000;
+    align-items: center;
+}
+
+span {
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+    margin-left: 45%;
+    margin-top: 20px;
+    opacity: 0.4; 
+    display: flex;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+}
+
+.radio-buttons input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #6d6d6d;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.radio-buttons input[type="radio"]:checked {
+    background-color: #759358;
+    border: none;
+}
+
+.radio-buttons label {
+    display: inline-block;
+    margin-right: 20px;
+    color: #2c2c2c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="text"]{
+    text-align: center; /* Adiciona alinhamento central */
+    border: none;
+    width: 90%;
+    padding: 10px 20px;
+    display: block;
+    height: 15px;
+    border-radius: 20px;
+    background: rgba(207, 207, 207, 0.295);
+    border: 2px solid rgba(255, 255, 255, 0);
+    overflow: hidden;
+    margin-top: 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+input[type="password"]{
+    text-align: center;
+    border: none;
+    width: 90%;
+    padding: 10px 20px;
+    display: block;
+    height: 15px;
+    border-radius: 20px;
+    background: rgba(207, 207, 207, 0.295);
+    border: 2px solid rgba(255, 255, 255, 0);
+    overflow: hidden;
+    margin-top: 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+
+input[type="submit"]  {
+    background: #759358;
+    display: block;
+    border: 0px solid #ffffff;
+    margin-top: 20px;
+    border-radius: 25px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    width: 250px;
+    padding: 1.2em 0;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 2px 2px 3px rgb(73, 73, 73);
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background: #000;
+    border: none;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    margin-top: 20px; /* Adiciona um espaço entre os elementos */
+    margin-left: 25px;
+}
+
+.logincontainer a {
+    margin-top: 30px; /* Espaçamento entre o botão e o link */
+    font-size: 12px;
+    color: #759358;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .entrar {
+        bottom: 25px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .entrar:hover {
+        bottom: 30px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    ul {
+      display: none; /* Esconder a lista de navegação padrão */
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      text-align: center;
+    }
+  
+    .navlink {
+      display: block;
+      padding: 20px 0;
+    }
+  
+    .login-btn {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .mobile-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 20px; /* Adiciona espaçamento interno */
+    }
+  
+    /* Estilizando o ícone de hambúrguer */
+    .hamburger-menu {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .hamburger-menu .bar {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: #000;
+      margin: 5px auto;
+      transition: all 0.3s ease;
+    }
+  
+    /* Animação do ícone de hambúrguer */
+
+    /*nth-child: seleciona o primeiro filho do elemento pai  */
+    .change .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+  
+    .change .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .change .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  
+    /* Exibir a lista de navegação ao clicar no ícone de hambúrguer */
+
+    /* igual o @media só acianado para determinados tipos de tela */
+    .show {
+    /* display: block faz com que o elemento ocupe toda a largura disponível  */
+      display: block !important;
+    }
+  }
