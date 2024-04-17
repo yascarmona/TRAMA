@@ -1,0 +1,287 @@
+body {
+    margin: 0;
+    font-family: 'segoe UI', sans-serif;
+    height: 100%;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    position: relative;
+    top: 0;
+    background-color: #fff;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Adicionado espaçamento interno */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; /* Alinhar os links à esquerda */
+    flex-grow: 1; /* Os links ocuparão o espaço restante */
+}
+
+li {
+    padding: 15px;
+}
+
+.logo {
+    height: 75px;
+    margin-right: 50px; /* Move a logo para a direita */
+	margin-left: 50px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.logo img {
+    height: 100%;
+}
+
+.navlink {
+    color: #2c2c2c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: .25em;
+    position: relative;
+}
+
+.navlink:hover::after {
+    width: 100%;
+    right: 0;
+}
+
+.navlink::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 2;
+    content: "";
+    display: block;
+    height: 4px;
+    right: 0;
+    position: absolute;
+    background: linear-gradient(to left, #c1d0ab, #eaefea 100%);
+    transition: width .5s ease 0s, right .5s ease 0s;
+    width: 0;
+}
+
+.login-btn {
+	float: right;
+    background-color: #759358;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    margin-right: 80px; /* Adiciona margem à esquerda */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn:hover {
+    background-color:  #000;
+    color: #eaefea;
+}
+
+.containerbg {
+    background-image: url('background.png');
+    max-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-top: 100px;
+    padding-bottom: 275px;
+    background-size: cover;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 100px;
+    justify-content: center;
+    flex-flow: wrap;
+    display: flex;
+    background-color: #fff;
+    width: 500px;
+    padding: 60px 60px 80px;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+    border-radius: 150px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.container h5{
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    margin-top: -1%;
+    color: #000000;
+    align-items: center;
+    margin-right: 10px;
+}
+
+
+.container p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.information{
+    align-items: center;
+    width: 500px;
+    margin-right: 10px;
+}
+
+.logoutbotao{
+    display: flex;
+    flex-direction: column;
+}
+
+.inline-buttons {
+    display: flex;
+    flex-direction: column; /* Coluna para alinhar verticalmente */
+    justify-content: center; /* Alinha verticalmente no centro */
+    align-items: center; /* Alinha horizontalmente no centro */
+    height: 100%; /* Defina a altura do contêiner */
+}
+
+.editar,
+.logout {
+    width: 100%; /* Define a largura dos botões */
+    margin-bottom: 10px; /* Adiciona espaço entre os botões */
+    padding: 10px;
+}
+
+.editar {
+    background: #759358;
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    width: 250px;
+    padding: 1.2em 0;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 2px 2px 3px rgb(73, 73, 73);
+    cursor: pointer;
+
+}
+
+.editar:hover {
+    background: #000000;
+}
+
+.logout {
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    width: 250px;
+    padding: 1.2em 0;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 2px 2px 3px rgb(73, 73, 73);
+    cursor: pointer;
+    background:  #759358;
+}
+
+.logout:hover {
+    background: #880000;
+}
+
+.logout a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.deletebotao {
+    display: flex;
+    flex-direction: column;
+}
+
+.deletebotao button {
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    width: 250px;
+    padding: 1.2em 0;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 2px 2px 3px rgba(0, 0, 2, 3);
+    box-shadow: 2px 2px 3px rgb(73, 73, 73);
+    cursor: pointer;
+    margin-right: 10px; /* Espaçamento entre os botões */
+    margin-top: 10px;
+    background:  #759358;
+}
+
+.deletebotao a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.cancelar{
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    width: 250px;
+    padding: 1.2em 0;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 2px 2px 3px rgba(0, 0, 2, 3);
+    box-shadow: 2px 2px 3px rgb(73, 73, 73);
+    cursor: pointer;
+    margin-right: 10px; /* Espaçamento entre os botões */
+    margin-top: 10px;
+    background:  #759358;
+}
+
+.cancelar:hover {
+    background: #000000;
+}
+
+input[type="submit"] {
+    background: #759358;
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    width: 220px;
+    padding: 1.2em 0;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 2px 2px 3px rgba(0, 0, 2, 3);
+    box-shadow: 2px 2px 3px rgb(73, 73, 73);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #880000;
+}
+
+
+.inline-buttons {
+    display: flex; /* Alterado para flex para alinhar os botões na mesma linha */
+    justify-content: space-between; /* Adiciona espaço entre os botões */
+    margin-top: 10px; /* Adiciona um espaçamento entre os botões */
+}

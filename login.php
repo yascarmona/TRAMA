@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verifica se os dados foram recebidos corretamente
         if (!empty($cpf) && !empty($senha)) {
+
             // Verifica as credenciais do cliente
             $sql = "SELECT id, senha FROM clientes WHERE cpf = '$cpf' AND senha = '$senha'";
             $result = $conexao->query($sql);
@@ -22,10 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($result->num_rows == 1) {
                 $row = $result->fetch_assoc();
                 // Inicia a sessão e redireciona para o perfil do cliente
+
                 session_start();
                 $_SESSION['id'] = $row['id'];
-                header("Location: perfil_Cliente.php");
+                header("Location: perfil_cliente.php");
                 exit(); // Importante para evitar a execução adicional do código
+
             } else {
                 echo "CPF ou senha incorretos.";
             }
@@ -50,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Inicia a sessão e redireciona para o perfil da empresa
                 session_start();
                 $_SESSION['id'] = $row['id'];
-                header("Location: perfil_Empresa.php");
+                header("Location: perfil_empresa.php");
                 exit(); // Importante para evitar a execução adicional do código
             } else {
                 echo "CNPJ ou senha incorretos.";
