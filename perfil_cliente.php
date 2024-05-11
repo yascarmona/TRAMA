@@ -2,9 +2,16 @@
 session_start();
 
 // Verifica se o usuário está logado
-if (!isset($_SESSION['id'])) {
-    header("Location: login.php");
-    exit();
+if (!isset($_SESSION['id']) && isset($_SESSION['user_ip'])) {
+    //$_SERVER['REMOTE_ADDR'] é o endereço IP do usuário atual.
+    //$_SESSION['user_ip'] é uma variável onde você armazena o endereço IP do usuário quando a sessão é iniciada.
+    if($_SESSION['user_ip'] !== $_SERVER['REMOTE_ADDR']) {
+        // Destrói a sessão
+        session_destroy();
+        // Redireciona para a página de login
+        header("Location: login.php");
+        exit();
+    }
 }
 
 // Conexão com o banco de dados
@@ -20,7 +27,6 @@ $row = $result->fetch_assoc();
 
 $cpf_formatado = preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $row['cpf']);
 $telefone_formatado = preg_replace('/(\d{2})(\d{4,5})(\d{4})/', '($1) $2-$3', $row['tel']);
-
 ?>
 
 <!DOCTYPE html>
@@ -41,43 +47,38 @@ $telefone_formatado = preg_replace('/(\d{2})(\d{4,5})(\d{4})/', '($1) $2-$3', $r
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
-      </div>
+    </div>
     <ul>
         <li><a class="navlink" href="sobre.html">SOBRE</a></li>
         <li><a class="navlink" href="produtos.html">PRODUTOS</a></li>
         <li><a class="navlink" href="sustentabilidade.html">SUSTENTABILIDADE</a></li>
     </ul>
-
-    <a href="login.html">
-        <button class="login-btn">LOGIN</button>
-    </a>
 </header>
 
 <div class="containerbg">
-
     <div class="container">
-
-            <div class="title">
-                <h5>SEU PERFIL</h5>
-            </div>
-
-            <div class="information">    
-                <h3><b>INFORMAÇÕES PESSOAIS</b></h3>
-                <p><strong><b>NOME:</b></strong> <?php echo $row['nome'] . " " . $row['sobrenome']; ?></p>
-                <p><strong><b>CPF:</b></strong> <?php echo $cpf_formatado; ?></p>
-                <h3><b>INFORMAÇÕES DE CONTATO</b></h3>
-                <p><strong><b>E-MAIL:</b></strong> <?php echo $row['email']; ?></p>
-                <p><strong><b>TELEFONE:</b></strong> <?php echo $telefone_formatado; ?></p>
-                <br>
-            </div>
-            
-            <!-- Botões de logout -->
-            <div class="inline-buttons">
-                <a href="clienteeditar.php"><button class="editar">EDITAR</button></a>
-                <a href="index.html"><button class="logout">LOGOUT</button></a>
-            </div>
+        <div class="title">
+            <h5>SEU PERFIL</h5>
+        </div>
+        
+        <div class="information">   
+            <h1><p>Bem-vindo, <?php echo $row['nome']; ?>!</p> </h1> 
+            <h3><b>INFORMAÇÕES PESSOAIS</b></h3>
+            <p><strong><b>NOME:</b></strong> <?php echo $row['nome'] . " " . $row['sobrenome']; ?></p>
+            <p><strong><b>CPF:</b></strong> <?php echo $cpf_formatado; ?></p>
+            <h3><b>INFORMAÇÕES DE CONTATO</b></h3>
+            <p><strong><b>E-MAIL:</b></strong> <?php echo $row['email']; ?></p>
+            <p><strong><b>TELEFONE:</b></strong> <?php echo $telefone_formatado; ?></p>
+            <br>
+        </div>
+        <!-- Botões de logout -->
+        <div class="inline-buttons">
+            <a href="clienteeditar.php"><button class="editar">EDITAR</button></a>
+            <a href="index.html"><button class="logout">LOGOUT</button></a>
+            <a href="produtoslogado.html"><button class="logout">VOLTAR</button></a>
+        </div>
     </div>
 </div>
 <!-- FIM LOGOUT --> 
-
-  </body>
+</body>
+</html>

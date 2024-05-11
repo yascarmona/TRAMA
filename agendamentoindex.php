@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="input-box">
                 <label for="tel"><b>TELEFONE:</b></label>
-                <input type="text" id="telefone" name="telefone" placeholder="Telefone" required><br>
+                <input type="text" id="telefone" name="telefone" placeholder="Telefone" required max="15" pattern="[0-9]{2}\ [0-9]{4,5}-[0-9]{4}"title="Informe um telefone válido (somente números)."><br> 
             </div>
 
             <div class="input-box">
@@ -105,11 +105,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="btn-box">
                 <input type="submit" value="Agendar" class="salvar">
-                <button class="voltar"><a href="index.php">Voltar</a></button>
+                <button class="voltar"><a href="perfil_empresa.php">Voltar</a></button>
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    document.getElementById('tel').addEventListener('input', function() {
+    let tel = this.value.replace(/\D/g, '');
+    tel = tel.replace(/^(\d{2})(\d)/g, '($1) $2');
+    tel = tel.replace(/(\d)(\d{4})$/, '$1-$2');
+    this.value = tel;
+});
+</script>
 
 <!-- Exibe a mensagem de sucesso ou erro -->
 <?php if (!empty($message)): ?>

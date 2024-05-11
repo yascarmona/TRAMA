@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="input-box">
             <label >CPF:</label>
-            <input type="int" name="cpf" value="<?php echo $row['cpf']; ?>"  ><br>
+            <input type="text" id="cpf" name="cpf" maxlength="14" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" title="Informe um CPF válido (somente números)." value="<?php echo $row['cpf']; ?>"  ><br>
         </div>
         
 
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <div class="input-box">
             <label >TELEFONE:</label>
-            <input type="int" name="tel" value="<?php echo $row['tel']; ?>"  ><br>
+            <input type="text" id="tel" name="tel" required maxlength="15" pattern="[0-9]{2}\ [0-9]{4,5}-[0-9]{4}" title="Informe um telefone válido (somente números).">
         </div>
 
         <div class="input-box">
@@ -130,7 +130,74 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <div class="video"></div>
-<script src="script.js"></script>
+<script>
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g,'');
+    if(cpf == '') return false;
+    // Elimina CPFs invalidos conhecidos
+    if (cpf.length != 11 ||
+        cpf == "00000000000" ||
+        cpf == "11111111111" ||
+        cpf == "22222222222" ||
+        cpf == "33333333333" ||
+        cpf == "44444444444" ||
+        cpf == "55555555555" ||
+        cpf == "66666666666" ||
+        cpf == "77777777777" ||
+        cpf == "88888888888" ||
+        cpf == "99999999999")
+            return false;
+    // Valida 1o digito
+    let add = 0;
+    for (let i=0; i < 9; i ++)
+        add += parseInt(cpf.charAt(i)) * (10 - i);
+    let rev = 11 - (add % 11);
+    if (rev == 10 || rev == 11)
+        rev = 0;
+    if (rev != parseInt(cpf.charAt(9)))
+        return false;
+    // Valida 2o digito
+    add = 0;
+    for (let i = 0; i < 10; i ++)
+        add += parseInt(cpf.charAt(i)) * (11 - i);
+    rev = 11 - (add % 11);
+    if (rev == 10 || rev == 11)
+        rev = 0;
+    if (rev != parseInt(cpf.charAt(10)))
+        return false;
+    return true;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('cpf').addEventListener('input', function() {
+        let cpf = this.value.replace(/\D/g, '');
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+        cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        this.value = cpf;
+    });
+
+    document.getElementById('tel').addEventListener('input', function() {
+    let tel = this.value.replace(/\D/g, '');
+    tel = tel.replace(/^(\d{2})(\d)/g, '($1) $2');
+    tel = tel.replace(/(\d)(\d{4})$/, '$1-$2');
+    this.value = tel;
+});
+
+    document.querySelector('form').addEventListener('submit', function(event) {
+        let cpf = document.getElementById('cpf').value;
+        if (cpf.trim() !== '') { // Verifica se o campo CPF está preenchido
+            if (!validarCPF(cpf)) { // Valida CPF
+                alert("CPF inválido!");
+                event.preventDefault(); // Impede o envio do formulário
+            } else {
+                alert("Parabéns, cadastro atualizado!");
+            }
+        }
+    });
+});
+
+</script>
 <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>

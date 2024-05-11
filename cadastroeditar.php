@@ -80,7 +80,7 @@ $conexao->close();
         
         <div class="input-box">
             <label ><B>CPF:</B></label>
-            <input type="int" name="cpf" value="<?php echo $row['cpf']; ?>"  ><br>
+            <input type="text" id="cpf" name="cpf" maxlength="14" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" title="Informe um CPF válido (somente números)." value="<?php echo $row['cpf']; ?>"  ><br>
         </div>
 
         <div class="input-box">
@@ -103,7 +103,7 @@ $conexao->close();
 
 
 <div class="video"></div>
-<script src="script.js"></script>
+<script src="cadastroscripit.js"></script>
 <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>

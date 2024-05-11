@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirmar'])) {
     // Limpa a sessão e redireciona para a página de login
     session_unset();
     session_destroy();
-    header("Location: login.php");
+    header("Location: login.html");
     exit();
 } else {
     header("Location: perfil_empresa.php");

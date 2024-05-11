@@ -53,7 +53,7 @@
                     <input type="text" id="sobrenome" name="sobrenome"><br>
         
                     <label for="cpf"><b>CPF:</b></label><br>
-                    <input type="text" id="cpf" name="cpf"><br>
+                    <input type="text" id="cpf" name="cpf" maxlength="14" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" title="Informe um CPF válido (somente números)."><br>
                 </div>
         
                 <!-- Campos específicos para empresa -->
@@ -65,12 +65,12 @@
                     <input type="text" id="NomeFanta" name="NomeFanta"><br>
 
                     <label for="cnpj"><b>CNPJ:</b></label><br>
-                    <input type="text" id="cnpj" name="cnpj" ><br>
+                    <input type="text" id="cnpj" name="cnpj" maxlength="18" pattern="[0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2}" title="Informe um CNPJ válido (somente números)."><br>
                 </div>
         
                 <!-- Campos comuns -->
                 <label for="tel"><b>TELEFONE:</b></label><br>
-                <input type="tel" id="tel" name="tel" required>
+                <input type="text" id="tel" name="tel" required maxlength="15" pattern="[0-9]{2}\ [0-9]{4,5}-[0-9]{4}" title="Informe um telefone válido (somente números).">
                 <br>
         
                 <label for="email"><b>E-MAIL:</b></label><br>
@@ -92,7 +92,7 @@
 <div class="video">
 
 </div>
-<script src="menuscript.js"></script>
+<script src="cadastroscripit.js"></script>
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
   <div vw-plugin-wrapper>
@@ -103,16 +103,6 @@
 <script>
   new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
-<script>  
-// Mostra os campos específicos dependendo do tipo de cadastro selecionado
-  document.getElementById('cliente').addEventListener('change', function() {
-      document.getElementById('cliente_fields').style.display = 'block';
-      document.getElementById('empresa_fields').style.display = 'none';
-  });
 
-  document.getElementById('empresa').addEventListener('change', function() {
-      document.getElementById('cliente_fields').style.display = 'none';
-      document.getElementById('empresa_fields').style.display = 'block';
-  });</script>
 </body>
 </html>

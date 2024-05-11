@@ -3,7 +3,7 @@
 // Incluir arquivo de configuração
 include("config.php");
 
-$sql = "SELECT * FROM clientes WHERE id = 1"; // Supondo que o usuário que você deseja editar tenha ID 1
+$sql = "SELECT * FROM clientes WHERE id = ?"; // Supondo que o usuário que você deseja editar tenha ID 1
 
 // Executar a consulta
 $result = $conexao->query($sql);

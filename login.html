@@ -47,12 +47,12 @@
 
             <div id="cliente_fields">
               <label for="cpf"><b>CPF:</b></label><br>
-              <input type="text" id="cpf" name="cpf" ><br>
+              <input type="text" id="cpf" name="cpf" maxlength="14" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" title="Informe um CPF válido (somente números)."><br>
           </div>
   
           <div id="empresa_fields" style="display:none;">
               <label for="cnpj"><b>CNPJ:</b></label><br>
-              <input type="text" id="cnpj" name="cnpj" ><br>
+              <input type="text" id="cnpj" name="cnpj" maxlength="18" pattern="[0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2}" title="Informe um CNPJ válido (somente números)."><br>
           </div>
 
             <label for="senha"><b>Senha:</b></label><br>
@@ -72,7 +72,7 @@
 <div class="video">
 
 </div>
-<script src="menuscript.js"></script>
+<script src="cadastroscripit.js"></script>
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
   <div vw-plugin-wrapper>

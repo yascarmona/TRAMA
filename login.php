@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 session_start();
                 $_SESSION['id'] = $row['id'];
-                header("Location: perfil_cliente.php");
+                header("Location: produtoslogado.html");
                 exit(); // Importante para evitar a execução adicional do código
 
             } else {

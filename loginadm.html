@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRAMA - MODA SUSTENTÁVEL</title>
+  <link rel="stylesheet" href="loginadmstyle.css">
+  <link rel="icon" href="trama_logo_small.svg">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="index.html"><img src="trama_logo.png"></a>
+    </div>
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <ul>
+        <li><a class="navlink" href="sobre.html">SOBRE</a></li>
+        <li><a class="navlink" href="produtos.html">PRODUTOS</a></li>
+        <li><a class="navlink" href="sustentabilidade.html">SUSTENTABILIDADE</a></li>
+    </ul>
+    <button class="login-btn" id="login-btn">LOGIN</button>
+</header>
+
+<div class="loginbg">
+    <div class="logincontainer">
+        <h5>SEJA BEM-VINDO(A)<br><br>
+         Administrador(a)</h5>
+
+        <!-- Adicionei um identificador único para o formulário de login -->
+        <form id="login-form" action="loginadm.php" method="POST">
+            <div id="empresa_fields">
+                <label for="email"><b>E-MAIL:</b></label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <label for="senha"><b>Senha:</b></label><br>
+            <input type="password" id="senha" name="senha" required><br>
+
+            <div class="buttons-container">
+              <input type="submit" value="ENTRAR">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Adicionando um event listener para o botão de login
+    document.getElementById("login-btn").addEventListener("click", function() {
+        // Submetendo o formulário de login quando o botão é clicado
+        document.getElementById("login-form").submit();
+    });
+</script>
+
+</body>
+</html>

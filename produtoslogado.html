@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TRAMA - MODA SUSTENTÁVEL</title>
-  <link rel="stylesheet" href="indexstyle.css">
+  <link rel="stylesheet" href="novidadesstyle.css">
   <link rel="icon" href="trama_logo_small.svg">
 </head>
 <body>
@@ -24,24 +24,23 @@
     <li><a class="navlink" href="sustentabilidade.html">SUSTENTABILIDADE</a></li>
   </ul>
 
+  <a href="carrinho.php">
+    <button class="login-btn">little car</button>
+  </a>
 
-  <a href="login.html">
-    <button class="login-btn">LOGIN</button>
+
+  <a href="perfil_cliente.php">
+    <button class="login-btn">PERFIL</button>
   </a>
 
   </header>
 
-<div class="clearfix" style="margin-top: 50px;">
-  <div class="carousel">
-    <img src="campanha_1.png" alt="Image 1">
-    <img src="campanha_2.png" alt="Image 2">
-    <img src="campanha_3.png" alt="Image 3">
-  </div>
-</div>
-
 <div class="lancamento">
-  <p>LANÇAMENTOS</p>
+  <p>PRODUTOS</p>
 </div>
+</div>
+<!-- Adicionando a caixa de texto de boas-vindas -->
+?>
 
 <div class="destaques">
   <div class="produtinho">
@@ -49,19 +48,38 @@
    <h2>CAMISETA FOLCLORE</h2>
    <p>CHICO REI</p>
    <h3>R$ 32,90</h3>
+   <form action="adicionar_carrinho.php" method="post">
+     <input type="hidden" name="produto_id" value="1">
+     <input type="submit" value="Adicionar ao Carrinho">
+   </form>
   </div>
-  <div class="produtinho">
-   <img src="produto_2.png" alt="">
-   <h2>VESTIDO MERCEDES</h2>
-   <p>SANTA RESISTÊNCIA</p>
-   <h3>R$ 320,00</h3>
+
+  <div class="destaques">
+    <div class="produtinho">
+      <img src="produto_2.png" alt="">
+      <h2>VESTIDO MERCEDES</h2>
+      <p>SANTA RESISTÊNCIA</p>
+      <h3>R$ 320,00</h3>
+     <form action="adicionar_carrinho.php" method="post">
+       <input type="hidden" name="produto_id" value="2">
+       <input type="submit" value="Adicionar ao Carrinho">
+     </form>
+    </div>
   </div>
-  <div class="produtinho">
-   <img src="produto_3.png" alt="">
-   <h2>CALÇA MILENA</h2>
-   <p>ALEHA</p>
-   <h3>R$ 850,00</h3>
+
+  <div class="destaques">
+    <div class="produtinho">
+      <img src="produto_3.png" alt="">
+      <h2>CALÇA MILENA</h2>
+      <p>ALEHA</p>
+      <h3>R$ 850,00</h3>
+     <form action="adicionar_carrinho.php" method="post">
+       <input type="hidden" name="produto_id" value="3">
+       <input type="submit" value="Adicionar ao Carrinho">
+     </form>
+    </div>
   </div>
+  
 </div>
 
 <footer class="text-center footer text-center">
@@ -74,14 +92,12 @@
           <h4>TRAMA</h4>
           <p><br>RUA DA GLÓRIA, 372, SALA 505 CURITIBA, PARANÁ<br><b>(41) 99139-9175</b></p>
         </div>
-        <div clas="link-admin"></div>
-        <a href="loginadm.html">ACESSO ADMINISTRATIVO</a></div>
+
         <div class="copyright"> <p>Copyright © 2023. Criado por Camila Araújo, Guilherme Belo & Yasmin Carmona.</p> </div>
-        
   </div>
 
 </footer>
-<script src="script.js"></script>
+<script src="menuscript.js"></script>
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
   <div vw-plugin-wrapper>
